@@ -40,6 +40,13 @@
             <version>3.3.1</version>
             <scope>provided</scope>
         </dependency>
+        
+        <!-- Jinja Engine -->
+        <dependency>
+            <groupId>com.hubspot.jinjava</groupId>
+            <artifactId>jinjava</artifactId>
+            <version>${jinjava.version}</version>
+        </dependency>
 
     </dependencies>
 
