@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <!-- Project coordinates -->
     <groupId>de.delker.maven</groupId>
     <artifactId>maven-jinja-filter</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <!-- Project meta-data -->
@@ -29,7 +27,7 @@
         <url>https://github.com/jdelker/maven-jinja-filter</url>
         <connection>scm:git:https://github.com/jdelker/maven-jinja-filter.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/jdelker/maven-jinja-filter.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>maven-jinja-filter-1.0</tag>
     </scm>
 
     <!-- Issue Management -->
