@@ -48,6 +48,21 @@
             <version>${jinjava.version}</version>
         </dependency>
 
+        <!-- Maven Invoker for Integration Testing -->
+        <dependency>
+            <groupId>org.apache.maven.shared</groupId>
+            <artifactId>maven-invoker</artifactId>
+            <version>3.3.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.24.2</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -63,6 +78,33 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+
+            <!-- Runs Maven Integration Tests Using a Real Maven Build -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-invoker-plugin</artifactId>
+                <version>3.9.0</version>
+                <executions>
+                    <execution>
+                        <id>integration-test</id>
+                        <goals>
+                            <goal>install</goal>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
+                    <localRepositoryPath>${project.build.directory}/local-repo</localRepositoryPath>
+                    <goals>
+                        <goal>process-resources</goal>
+                    </goals>
+                    <cloneAllFiles>true</cloneAllFiles>
+                    <failIfNoProjects>true</failIfNoProjects>
+                    <postBuildHookScript>verify</postBuildHookScript>
+                    <addTestClassPath>true</addTestClassPath>
+                </configuration>
             </plugin>
         </plugins>
     </build>

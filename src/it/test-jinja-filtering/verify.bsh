@@ -1,0 +1,13 @@
+import static org.assertj.core.api.Assertions.*;
+
+File expected = new File(basedir, "expected.txt");
+File actual = new File(basedir, "target/classes/template.txt");
+
+try {
+    assertThat(actual).exists();
+    assertThat(actual).hasSameTextualContentAs(expected);
+    return true;
+} catch (AssertionError e) {
+    System.err.println("File comparison failed: " + e.getMessage());
+    return false;
+}

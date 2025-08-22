@@ -1,0 +1,5 @@
+Property from file with std-filtering: present
+Property from pom with std-filtering: present
+
+Property from file with jinja-filtering: present
+Property from pom with jinja-filtering: present
