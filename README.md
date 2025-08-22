@@ -1,5 +1,15 @@
 # maven-jinja-filter
 
+<!-- Badges / Banner Tags -->
+<p>
+  <a href="https://search.maven.org/artifact/de.delker.maven/maven-jinja-filter"><img src="https://img.shields.io/maven-central/v/de.delker.maven/maven-jinja-filter" alt="Maven Central"></a>
+  <a href="https://github.com/jdelker/maven-jinja-filter/releases"><img src="https://img.shields.io/github/v/release/jdelker/maven-jinja-filter" alt="Latest Release"></a>
+  <a href="https://github.com/jdelker/maven-jinja-filter/blob/main/LICENSE"><img src="https://img.shields.io/github/license/jdelker/maven-jinja-filter" alt="License"></a>
+  <a href="https://github.com/jdelker/maven-jinja-filter/issues"><img src="https://img.shields.io/github/issues/jdelker/maven-jinja-filter" alt="Issues"></a>
+</p>
+
+<img src="https://raw.githubusercontent.com/jdelker/maven-jinja-filter/refs/heads/main/logo.svg" alt="maven-jinja-filter">
+
 A Maven Jinja filter module for `maven-resource-plugin`.
 
 ## Overview
