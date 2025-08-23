@@ -49,8 +49,7 @@
         <maven.compiler.version>3.14.0</maven.compiler.version>
         <maven.compiler.release>11</maven.compiler.release>
         <mavenVersion>3.8.1</mavenVersion>
-        <jinjava.version>2.5.6</jinjava.version>
-        <junit.version>5.10.2</junit.version>
+        <jinjava.version>2.8.0</jinjava.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
