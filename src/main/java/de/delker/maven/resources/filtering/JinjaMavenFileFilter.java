@@ -54,7 +54,7 @@ public class JinjaMavenFileFilter extends DefaultMavenFileFilter {
      */
     public static final String JINJA_EXT = ".j2";
 
-    private List<FilterWrapper> jinjaFilterWrappers;
+    private FilterWrapper jinjaFilterWrapper;
 
     @Inject
     public JinjaMavenFileFilter(BuildContext buildContext) {
@@ -64,22 +64,17 @@ public class JinjaMavenFileFilter extends DefaultMavenFileFilter {
     /** {@inheritDoc} */
     @Override
     public List<FilterWrapper> getDefaultFilterWrappers(AbstractMavenFilteringRequest request) throws MavenFilteringException {
-        var defaultWrappers = super.getDefaultFilterWrappers(request);
 
         // Initialize Jinja wrapper
-        if (jinjaFilterWrappers == null) {
+        if (jinjaFilterWrapper == null) {
             try {
-                jinjaFilterWrappers = new ArrayList<>(defaultWrappers);
-                jinjaFilterWrappers.add(new Wrapper(
-                        getProperties(request)
-                ));
+                jinjaFilterWrapper = new Wrapper(getProperties(request)                );
             } catch (IOException e) {
                 throw new MavenFilteringException("Failed to initialize jinjaFilterWrapper", e);
             }
         }
 
-        // Return only the default wrappers. The JinjaWrapper will be used selectively.
-        return defaultWrappers;
+        return super.getDefaultFilterWrappers(request);
     }
 
     /** {@inheritDoc} */
@@ -97,11 +92,13 @@ public class JinjaMavenFileFilter extends DefaultMavenFileFilter {
         String toFileName = to.getName();
         if (filtering && toFileName.endsWith(JINJA_EXT)) {
             File newTo = new File(to.getParentFile(), StringUtils.removeEnd(toFileName, JINJA_EXT));
+            var wrappers = new ArrayList(filterWrappers);
+            wrappers.add(jinjaFilterWrapper);
             super.copyFile(
                     from,
                     newTo,
                     true,
-                    jinjaFilterWrappers,
+                    wrappers,
                     encoding,
                     overwrite);
 
