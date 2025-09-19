@@ -5,7 +5,7 @@
     <!-- Project coordinates -->
     <groupId>de.delker.maven</groupId>
     <artifactId>maven-jinja-filter</artifactId>
-    <version>1.3-SNAPSHOT</version>
+    <version>1.3</version>
     <packaging>jar</packaging>
 
     <!-- Project meta-data -->
@@ -27,7 +27,7 @@
         <url>https://github.com/jdelker/maven-jinja-filter</url>
         <connection>scm:git:https://github.com/jdelker/maven-jinja-filter.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/jdelker/maven-jinja-filter.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>maven-jinja-filter-1.3</tag>
     </scm>
 
     <!-- Issue Management -->
