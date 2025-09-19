@@ -66,12 +66,10 @@ public class JinjaMavenFileFilter extends DefaultMavenFileFilter {
     public List<FilterWrapper> getDefaultFilterWrappers(AbstractMavenFilteringRequest request) throws MavenFilteringException {
 
         // Initialize Jinja wrapper
-        if (jinjaFilterWrapper == null) {
-            try {
-                jinjaFilterWrapper = new Wrapper(getProperties(request)                );
-            } catch (IOException e) {
-                throw new MavenFilteringException("Failed to initialize jinjaFilterWrapper", e);
-            }
+        try {
+            jinjaFilterWrapper = new Wrapper(getProperties(request)                );
+        } catch (IOException e) {
+            throw new MavenFilteringException("Failed to initialize jinjaFilterWrapper", e);
         }
 
         return super.getDefaultFilterWrappers(request);
