@@ -64,6 +64,8 @@ Just declare this filter module as a dependency to the maven-resources-plugin:
 </plugin>
 ```
 
+**IMPORTANT**: Currently, this filter is compatible with versions <=3.4.0 of the maven-resources-plugin. Starting with 3.5.0, the filter is not capable of registering as the "default" filter anymore. Until that is investigated and solved, 3.4.0 remains the latest version, which can be used with this filter.
+
 All config options of the `maven-resources-plugin` apply.
 The `maven-jinja-filter` behaves completely neutral for any files without `.j2` extension.
 For files with that extension, the Jinja filtering is applied in **addition** to any default filtering, and the final file has the `.j2` extension removed.
