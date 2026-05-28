@@ -199,6 +199,7 @@
                     <failIfNoProjects>true</failIfNoProjects>
                     <postBuildHookScript>verify</postBuildHookScript>
                     <addTestClassPath>true</addTestClassPath>
+                    <streamLogsOnFailures>true</streamLogsOnFailures>
                 </configuration>
             </plugin>
         </plugins>
