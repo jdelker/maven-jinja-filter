@@ -49,9 +49,50 @@
         <maven.compiler.version>3.14.0</maven.compiler.version>
         <maven.compiler.release>11</maven.compiler.release>
         <mavenVersion>3.8.1</mavenVersion>
-        <jinjava.version>2.8.0</jinjava.version>
+        <jinjava.version>2.8.3</jinjava.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <!-- Manage proper convergence and security issues for some dependencies -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency> <!-- security override for CVE-2025-67030 -->
+                <groupId>org.codehaus.plexus</groupId>
+                <artifactId>plexus-utils</artifactId>
+                <version>4.0.3</version>
+            </dependency>
+
+            <dependency> <!-- security override for CVE-2022-29599 -->
+                <groupId>org.apache.maven.shared</groupId>
+                <artifactId>maven-shared-utils</artifactId>
+                <version>3.3.3</version>
+            </dependency>
+
+            <dependency> <!-- security override for WS-2022-0488 -->
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>2.21.1</version>
+            </dependency>
+
+            <dependency> <!-- security override for CVE-2022-1471 -->
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>2.0</version>
+            </dependency>
+
+            <dependency> <!-- security override for CVE-2025-48924 -->
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.18.0</version>
+            </dependency>
+
+            <dependency> <!-- security override for CVE-2021-29425 -->
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.14.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <!-- Dependencies -->
     <dependencies>
@@ -68,36 +109,12 @@
             <artifactId>maven-core</artifactId>
             <version>${mavenVersion}</version>
             <scope>provided</scope>
-        </dependency>
-
-        <dependency> <!-- security override for CVE-2022-29599 -->
-            <groupId>org.apache.maven.shared</groupId>
-            <artifactId>maven-shared-utils</artifactId>
-            <version>3.3.3</version>
-        </dependency>
-
-        <dependency> <!-- security override for WS-2022-0488 -->
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>2.15.0</version>
-        </dependency>
-
-        <dependency> <!-- security override for CVE-2022-1471 -->
-            <groupId>org.yaml</groupId>
-            <artifactId>snakeyaml</artifactId>
-            <version>2.0</version>
-        </dependency>
-
-        <dependency> <!-- security override for CVE-2025-48924 -->
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.18.0</version>
-        </dependency>
-
-        <dependency> <!-- security override for CVE-2021-29425 -->
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.14.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.maven.shared</groupId>
+                    <artifactId>maven-shared-utils</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!-- Maven Resource Filtering API -->
@@ -126,7 +143,7 @@
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.24.2</version>
+            <version>3.27.7</version>
             <scope>test</scope>
         </dependency>
 
